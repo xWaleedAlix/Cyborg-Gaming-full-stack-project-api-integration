@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Cyborg - Awesome HTML5 Template</title>
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  </head>
+  <style>
+    .loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      --animation: 2s ease-in-out infinite;
+    }
+    
+    .loader .circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border: solid 2px transparent;
+      border-radius: 50%;
+      margin: 0 10px;
+      background-color: transparent;
+      animation: circle-keys var(--animation);
+    }
+    
+    .loader .circle .dot {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      animation: dot-keys var(--animation);
+    }
+    
+    .loader .circle .outline {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      animation: outline-keys var(--animation);
+    }
+    
+    .circle:nth-child(1) {
+      --color: #4285f4;
+      border-color: var(--color);
+    }
+    
+    .circle:nth-child(1) .dot {
+      background-color: var(--color);
+    }
+    
+    .circle:nth-child(2) {
+      --color: #ea4335;
+      border-color: var(--color);
+      animation-delay: 0.3s;
+    }
+    
+    .circle:nth-child(2) .dot {
+      background-color: var(--color);
+      animation-delay: 0.3s;
+    }
+    
+    .circle:nth-child(3) {
+      --color: #fbbc05;
+      border-color: var(--color);
+      animation-delay: 0.6s;
+    }
+    
+    .circle:nth-child(3) .dot {
+      background-color: var(--color);
+      animation-delay: 0.6s;
+    }
+    
+    .circle:nth-child(4) {
+      --color: #34a853;
+      border-color: var(--color);
+      animation-delay: 0.9s;
+    }
+    
+    .circle:nth-child(4) .dot {
+      background-color: var(--color);
+      animation-delay: 0.9s;
+    }
+    
+    .circle:nth-child(5) {
+      --color: #4285f4;
+      border-color: var(--color);
+      animation-delay: 1.2s;
+    }
+    
+    .circle:nth-child(5) .dot {
+      background-color: var(--color);
+      animation-delay: 1.2s;
+    }
+    
+    .circle:nth-child(1) .outline {
+      animation-delay: 0.9s;
+    }
+    
+    .circle:nth-child(2) .outline {
+      animation-delay: 1.2s;
+    }
+    
+    .circle:nth-child(3) .outline {
+      animation-delay: 1.5s;
+    }
+    
+    .circle:nth-child(4) .outline {
+      animation-delay: 1.8s;
+    }
+    
+    .circle:nth-child(5) .outline {
+      animation-delay: 2.1s;
+    }
+    
+    @keyframes circle-keys {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    
+      50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+      }
+    
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes dot-keys {
+      0% {
+        transform: scale(1);
+      }
+    
+      50% {
+        transform: scale(0);
+      }
+    
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes outline-keys {
+      0% {
+        transform: scale(0);
+        outline: solid 20px var(--color);
+        outline-offset: 0;
+        opacity: 1;
+      }
+    
+      100% {
+        transform: scale(1);
+        outline: solid 0 transparent;
+        outline-offset: 20px;
+        opacity: 0;
+      }
+    }
+    .neon-checkbox {
+      --primary: #00ffaa;
+      --primary-dark: #00cc88;
+      --primary-light: #88ffdd;
+      --size: 30px;
+      position: relative;
+      width: var(--size);
+      height: var(--size);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .neon-checkbox input {
+      display: none;
+    }
+    
+    .neon-checkbox__frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .neon-checkbox__box {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 4px;
+      border: 2px solid var(--primary-dark);
+      transition: all 0.4s ease;
+    }
+    
+    .neon-checkbox__check-container {
+      position: absolute;
+      inset: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .neon-checkbox__check {
+      width: 80%;
+      height: 80%;
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 40;
+      stroke-dashoffset: 40;
+      transform-origin: center;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .neon-checkbox__glow {
+      position: absolute;
+      inset: -2px;
+      border-radius: 6px;
+      background: var(--primary);
+      opacity: 0;
+      filter: blur(8px);
+      transform: scale(1.2);
+      transition: all 0.4s ease;
+    }
+    
+    .neon-checkbox__borders {
+      position: absolute;
+      inset: 0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .neon-checkbox__borders span {
+      position: absolute;
+      width: 40px;
+      height: 1px;
+      background: var(--primary);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .neon-checkbox__borders span:nth-child(1) {
+      top: 0;
+      left: -100%;
+      animation: borderFlow1 2s linear infinite;
+    }
+    
+    .neon-checkbox__borders span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 1px;
+      height: 40px;
+      animation: borderFlow2 2s linear infinite;
+    }
+    
+    .neon-checkbox__borders span:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      animation: borderFlow3 2s linear infinite;
+    }
+    
+    .neon-checkbox__borders span:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 1px;
+      height: 40px;
+      animation: borderFlow4 2s linear infinite;
+    }
+    
+    .neon-checkbox__particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      box-shadow: 0 0 6px var(--primary);
+    }
+    
+    .neon-checkbox__rings {
+      position: absolute;
+      inset: -20px;
+      pointer-events: none;
+    }
+    
+    .neon-checkbox__rings .ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid var(--primary);
+      opacity: 0;
+      transform: scale(0);
+    }
+    
+    .neon-checkbox__sparks span {
+      position: absolute;
+      width: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      opacity: 0;
+    }
+    
+    .neon-checkbox:hover .neon-checkbox__box {
+      border-color: var(--primary);
+      transform: scale(1.05);
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__box {
+      border-color: var(--primary);
+      background: rgba(0, 255, 170, 0.1);
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__check {
+      stroke-dashoffset: 0;
+      transform: scale(1.1);
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__glow {
+      opacity: 0.2;
+    }
+    
+    .neon-checkbox
+      input:checked
+      ~ .neon-checkbox__frame
+      .neon-checkbox__borders
+      span {
+      opacity: 1;
+    }
+    
+    .neon-checkbox
+      input:checked
+      ~ .neon-checkbox__frame
+      .neon-checkbox__particles
+      span {
+      animation: particleExplosion 0.6s ease-out forwards;
+    }
+    
+    .neon-checkbox
+      input:checked
+      ~ .neon-checkbox__frame
+      .neon-checkbox__rings
+      .ring {
+      animation: ringPulse 0.6s ease-out forwards;
+    }
+    
+    .neon-checkbox
+      input:checked
+      ~ .neon-checkbox__frame
+      .neon-checkbox__sparks
+      span {
+      animation: sparkFlash 0.6s ease-out forwards;
+    }
+    
+    @keyframes borderFlow1 {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(200%);
+      }
+    }
+    
+    @keyframes borderFlow2 {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(200%);
+      }
+    }
+    
+    @keyframes borderFlow3 {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-200%);
+      }
+    }
+    
+    @keyframes borderFlow4 {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-200%);
+      }
+    }
+    
+    @keyframes particleExplosion {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(
+            calc(-50% + var(--x, 20px)),
+            calc(-50% + var(--y, 20px))
+          )
+          scale(0);
+        opacity: 0;
+      }
+    }
+    
+    @keyframes ringPulse {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+    
+    @keyframes sparkFlash {
+      0% {
+        transform: rotate(var(--r, 0deg)) translateX(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(var(--r, 0deg)) translateX(30px) scale(0);
+        opacity: 0;
+      }
+    }
+    #AddToLibrary{
+      display: flex;
+      margin-top: 10px;
+    }
+    #AddToLibrary>p{
+      flex: 1;
+    }
+    .neon-checkbox {
+      --primary: #ff00aa;
+      --primary-dark: #cc0088;
+      --primary-light: #ff88dd;
+      --size: 30px;
+      position: relative;
+      width: var(--size);
+      height: var(--size);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .neon-checkbox input {
+      display: none;
+    }
+    
+    .neon-checkbox__frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .neon-checkbox__box {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 4px;
+      border: 2px solid var(--primary-dark);
+      transition: all 0.4s ease;
+    }
+    
+    .neon-checkbox__check-container {
+      position: absolute;
+      inset: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .neon-checkbox__check {
+      width: 80%;
+      height: 80%;
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 40;
+      stroke-dashoffset: 40;
+      transform-origin: center;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .neon-checkbox__glow {
+      position: absolute;
+      inset: -2px;
+      border-radius: 6px;
+      background: var(--primary);
+      opacity: 0;
+      filter: blur(8px);
+      transform: scale(1.2);
+      transition: all 0.4s ease;
+    }
+    
+    .neon-checkbox__borders {
+      position: absolute;
+      inset: 0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .neon-checkbox__borders span {
+      position: absolute;
+      width: 40px;
+      height: 1px;
+      background: var(--primary);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .neon-checkbox__borders span:nth-child(1) {
+      top: 0;
+      left: -100%;
+      animation: borderFlow1 2s linear infinite;
+    }
+    
+    .neon-checkbox__borders span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 1px;
+      height: 40px;
+      animation: borderFlow2 2s linear infinite;
+    }
+    
+    .neon-checkbox__borders span:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      animation: borderFlow3 2s linear infinite;
+    }
+    
+    .neon-checkbox__borders span:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 1px;
+      height: 40px;
+      animation: borderFlow4 2s linear infinite;
+    }
+    
+    .neon-checkbox__particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      box-shadow: 0 0 6px var(--primary);
+    }
+    
+    .neon-checkbox__rings {
+      position: absolute;
+      inset: -20px;
+      pointer-events: none;
+    }
+    
+    .neon-checkbox__rings .ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid var(--primary);
+      opacity: 0;
+      transform: scale(0);
+    }
+    
+    .neon-checkbox__sparks span {
+      position: absolute;
+      width: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      opacity: 0;
+    }
+    
+    .neon-checkbox:hover .neon-checkbox__box {
+      border-color: var(--primary);
+      transform: scale(1.05);
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__box {
+      border-color: var(--primary);
+      background: rgba(255, 0, 170, 0.1);
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__check {
+      stroke-dashoffset: 0;
+      transform: scale(1.1);
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__glow {
+      opacity: 0.2;
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__borders span {
+      opacity: 1;
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__particles span {
+      animation: particleExplosion 0.6s ease-out forwards;
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__rings .ring {
+      animation: ringPulse 0.6s ease-out forwards;
+    }
+    
+    .neon-checkbox input:checked ~ .neon-checkbox__frame .neon-checkbox__sparks span {
+      animation: sparkFlash 0.6s ease-out forwards;
+    }
+    
+    @keyframes borderFlow1 {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(200%);
+      }
+    }
+    
+    @keyframes borderFlow2 {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(200%);
+      }
+    }
+    
+    @keyframes borderFlow3 {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-200%);
+      }
+    }
+    
+    @keyframes borderFlow4 {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-200%);
+      }
+    }
+    
+    @keyframes particleExplosion {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--x, 20px)), calc(-50% + var(--y, 20px))) scale(0);
+        opacity: 0;
+      }
+    }
+    
+    @keyframes ringPulse {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+    
+    @keyframes sparkFlash {
+      0% {
+        transform: rotate(var(--r, 0deg)) translateX(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(var(--r, 0deg)) translateX(30px) scale(0);
+        opacity: 0;
+      }
+    }
+    .border-no-active,.main-border-button{
+      display: flex;
+    }
+    .gaming-library .item ul li:last-child{
+      width: max-content;
+    }
+    .UninstallBtn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 5px 5px;
+      background-color: #212121;
+      border: none;
+      font: inherit;
+      color: #e8e8e8;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: not-allowed;
+      overflow: hidden;
+      transition: all 0.3s ease cubic-bezier(0.23, 1, 0.320, 1);
+    }
+    
+    .UninstallBtn span {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+    }
+    
+    .UninstallBtn::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      translate: 0 105%;
+      background-color: #F53844;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+    
+    .UninstallBtn svg {
+      width: 32px;
+      height: 32px;
+      fill: #F53844;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+    
+    .UninstallBtn:hover {
+      animation: shake 0.2s linear 1;
+    }
+    
+    .UninstallBtn:hover::before {
+      translate: 0 0;
+    }
+    
+    .UninstallBtn:hover svg {
+      fill: #e8e8e8;
+    }
+    
+    @keyframes shake {
+      0% {
+        rotate: 0deg;
+      }
+    
+      33% {
+        rotate: 10deg;
+      }
+    
+      66% {
+        rotate: -10deg;
+      }
+    
+      100% {
+        rotate: 10deg;
+      }
+    }
+    .popularGames{
+      transition: 0.3s;
+      cursor: pointer;
+      &:hover{
+        scale: 1.05;
+      }
+      &:hover{
+        filter: drop-shadow( 0px 0px 2px #ccc);
+      }
+    }
+    </style>
+<body>
+
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="">
+                    </a>
+                    <div class="search-input">
+                      <form id="search" action="#">
+                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
+                        <i class="fa fa-search"></i>
+                      </form>
+                    </div>
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="details.html">Details</a></li>
+                        <li><a href="friends.html">Friends</a></li>
+                        <li><a href="profile.html" class="active">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="main-profile ">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <img src="assets/images/profile.jpg" alt="" style="border-radius: 23px;">
+                  </div>
+                  <div class="col-lg-4 align-self-center">
+                    <div class="main-info header-text">
+                      <span>Offline</span>
+                      <h4>Alan Smithee</h4>
+                      <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
+                      <div class="main-border-button">
+                        <a href="#">Start Live Stream</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 align-self-center">
+                    <ul>
+                      <li>Games Downloaded <span>3</span></li>
+                      <li>Friends Online <span>16</span></li>
+                      <li>Live Streams <span>None</span></li>
+                      <li>Clips <span>29</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="clips">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="heading-section">
+                            <h4><em>Your Most Popular</em> Clips</h4>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                          <div class="item">
+                            <div class="thumb">
+                              <img src="assets/images/clip-01.jpg" alt="" style="border-radius: 23px;">
+                              <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
+                            </div>
+                            <div class="down-content">
+                              <h4>First Clip</h4>
+                              <span><i class="fa fa-eye"></i> 250</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                          <div class="item">
+                            <div class="thumb">
+                              <img src="assets/images/clip-02.jpg" alt="" style="border-radius: 23px;">
+                              <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
+                            </div>
+                            <div class="down-content">
+                              <h4>Second Clip</h4>
+                              <span><i class="fa fa-eye"></i> 183</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                          <div class="item">
+                            <div class="thumb">
+                              <img src="assets/images/clip-03.jpg" alt="" style="border-radius: 23px;">
+                              <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
+                            </div>
+                            <div class="down-content">
+                              <h4>Third Clip</h4>
+                              <span><i class="fa fa-eye"></i> 141</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                          <div class="item">
+                            <div class="thumb">
+                              <img src="assets/images/clip-04.jpg" alt="" style="border-radius: 23px;">
+                              <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
+                            </div>
+                            <div class="down-content">
+                              <h4>Fourth Clip</h4>
+                              <span><i class="fa fa-eye"></i> 91</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="main-button">
+                            <a href="#">Load More Clips</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gaming-library profile-library">
+            <div class="col-lg-12">
+              <div class="heading-section">
+                <h4><em>Your Gaming</em> Library</h4>
+              </div>
+              <div class="item">
+                <ul>
+                  <li><img src="assets/images/game-01.jpg" alt="" class="templatemo-item"></li>
+                  <li><h4>Dota 2</h4><span>Sandbox</span></li>
+                  <li><h4>Date Added</h4><span>24/08/2036</span></li>
+                  <li><h4>Hours Played</h4><span>634 H 22 Mins</span></li>
+                  <li><h4>Currently</h4><span>Downloaded</span></li>
+                  <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>
+                </ul>
+              </div>
+              <div class="item">
+                <ul>
+                  <li><img src="assets/images/game-02.jpg" alt="" class="templatemo-item"></li>
+                  <li><h4>Fortnite</h4><span>Sandbox</span></li>
+                  <li><h4>Date Added</h4><span>22/06/2036</span></li>
+                  <li><h4>Hours Played</h4><span>745 H 22 Mins</span></li>
+                  <li><h4>Currently</h4><span>Downloaded</span></li>
+                  <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>
+                </ul>
+              </div>
+              <div class="item last-item">
+                <ul>
+                  <li><img src="assets/images/game-03.jpg" alt="" class="templatemo-item"></li>
+                  <li><h4>CS-GO</h4><span>Sandbox</span></li>
+                  <li><h4>Date Added</h4><span>21/04/2022</span></li>
+                  <li><h4>Hours Played</h4><span>632 H 46 Mins</span></li>
+                  <li><h4>Currently</h4><span>Downloaded</span></li>
+                  <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved. 
+          
+            <br>Design: <a href="https://funnelskingdom.com/" target="_blank" title="">FunnelsKingdom</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/popup.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/scripts/tokenScripts.js"></script>
+<script src="assets/scripts/profile.js"></script>
+  </body>
+
+</html>
